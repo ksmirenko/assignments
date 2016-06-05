@@ -1,8 +1,8 @@
-group 'assingments'
-version '1.0-SNAPSHOT'
+group 'assignments'
+version '1.0'
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.2'
+  gradleVersion = '2.13'
   distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
@@ -10,6 +10,9 @@ apply plugin: 'kotlin'
 apply plugin: 'application'
 
 defaultTasks 'test'
+
+//noinspection GroovyUnusedAssignment
+mainClassName = 'classroom.c05.MainKt'
 
 repositories {
     mavenCentral()

@@ -3,7 +3,6 @@ package homework.hw06.gui
 import homework.hw06.Core
 import java.awt.*
 import javax.swing.*
-import javax.swing.JFrame.CENTER_ALIGNMENT
 
 class TicTacToeGUI : JFrame() {
     private val windowWidth = 350

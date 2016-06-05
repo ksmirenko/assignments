@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package classroom.c03
 
 abstract class Tree() {

@@ -29,7 +29,7 @@ class MyTreeMap<K, V>() : MyAbstractMap<K, V> where K : Comparable<K> {
         root?.forEach_(f)
     }
 
-    override fun newClassInstance() : MyAbstractMap<K, V> = MyTreeMap<K, V>()
+    override fun newClassInstance() : MyAbstractMap<K, V> = MyTreeMap()
 
     /**
      * A Node (empty, leaf or non-leaf) for AVL tree.
@@ -70,7 +70,8 @@ class MyTreeMap<K, V>() : MyAbstractMap<K, V> where K : Comparable<K> {
             return if (right_ == null) key else right_.findMax()
         }
 
-        /**
+        @Suppress("unused")
+                /**
          * Creates an AVL tree using the node as root.
          */
         fun toTree() : MyTreeMap<K, V> {

@@ -1,4 +1,6 @@
-package patterns
+@file:Suppress("unused")
+
+package patterns.decorator_AK
 
 abstract class Window{
     abstract fun draw()
@@ -27,7 +29,7 @@ class BorderDecorator (win: Window, width: Int): Decorator(win){
     }
 }
 
-class ShadowDecorator (win:Window): Decorator(win){
+class ShadowDecorator (win: Window): Decorator(win){
     private fun MakeShadow(){
         println("*with shadows*")
     }

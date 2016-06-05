@@ -23,7 +23,7 @@ interface ShoppingCartVisitor {
 
 class ShoppingCartVisitorA: ShoppingCartVisitor {
     override fun visit(book: Book): Int {
-        var cost: Int
+        val cost: Int
         if (book.price > 50) {
             cost = book.price - 5
         } else {
@@ -34,7 +34,7 @@ class ShoppingCartVisitorA: ShoppingCartVisitor {
     }
 
     override fun visit(fruit: Fruit): Int {
-        var cost = fruit.PricePerKg * fruit.weight
+        val cost = fruit.PricePerKg * fruit.weight
         println("${fruit.name} cost = $cost")
         return cost
     }

@@ -1,6 +1,8 @@
 // Example for pattern "Bilder"
 // Alekseev Aleksei, group 271
 
+@file:Suppress("unused")
+
 package patterns.builder
 
 /* "Product" */

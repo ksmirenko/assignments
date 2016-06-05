@@ -5,7 +5,7 @@ import java.util.ArrayList
 fun main(args: Array<String>) {
     val boxes = ArrayList<IBox<Int>>()
     // creating first box (list)
-    val box1 : IBox<Int> = ListBox<Int>()
+    val box1 : IBox<Int> = ListBox()
     box1.add(1)
     box1.add(4)
     box1.add(8)
@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
     box1.add(1)
     boxes.add(box1)
     // creating second box (set)
-    val box2 : IBox<Int> = SetBox<Int>()
+    val box2 : IBox<Int> = SetBox()
     box2.add(1)
     box2.add(4)
     box2.add(8)

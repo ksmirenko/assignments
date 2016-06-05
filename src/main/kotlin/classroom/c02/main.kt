@@ -1,6 +1,6 @@
-package classroom.c02
+@file:Suppress("unused")
 
-import java.util.*
+package classroom.c02
 
 /*
 abstract class Tree() {}
@@ -78,7 +78,7 @@ fun asdf(/*a: Tree?*/): Pair<Int, Int> {
 }
 
 fun main(args: Array<String>) {
-    var tree: Tree? = getTree(1)
+    val tree: Tree? = getTree(1)
     val tree_val = tree
     if (tree_val != null) {
         val value: Int = tree_val.value

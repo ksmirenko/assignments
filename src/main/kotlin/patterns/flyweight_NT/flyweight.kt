@@ -60,10 +60,10 @@ class FlyweightFactory
 
 fun main (args : Array<String>)
 {
-    var factory : FlyweightFactory  = FlyweightFactory();
-    var characterCodes : Array<Int> = arrayOf(1, 2, 3);
+    val factory : FlyweightFactory  = FlyweightFactory();
+    val characterCodes : Array<Int> = arrayOf(1, 2, 3);
     for (nextCode in characterCodes){
-        var character : EnglishCharacter = factory.getCharacter(nextCode);
+        val character : EnglishCharacter = factory.getCharacter(nextCode);
         character.printCharacter();
     }
 }

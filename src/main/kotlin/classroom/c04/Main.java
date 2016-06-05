@@ -1,9 +1,8 @@
 package classroom.c04;
 
 import java.util.HashMap;
-import classroom.c04.kotlin.Pair;
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         Pair<Integer, Integer> pair1 = new Pair<Integer, Integer>(1, 2);
         Pair<Integer, Integer> pair2 = new Pair<Integer, Integer>(1, 2);
@@ -27,5 +26,6 @@ public class Main {
         Pair<A1, A1> pair3 = new Pair<A1, A1>(new A1(), new A1());
 
         System.out.println(pair1);
+        System.out.println(pair3);
     }
 }

@@ -15,7 +15,7 @@ class Context() {
 }
 
 fun main(args: Array<String>) {
-    var context = Context()
+    val context = Context()
     println("MD5     is ${context.executeStrategy("Web Biscuit")}")
     context.setStrategy(SHA256())
     println("SHA-256 is ${context.executeStrategy("Web Biscuit")}")

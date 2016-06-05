@@ -37,7 +37,7 @@ interface MyAbstractMap<K, V> : Iterable<MyMapEntry<K, V>> where K : Comparable<
     operator fun contains(key : K) : Boolean = (search(key) != null)
 
     /**
-     * Applies [f] to each of the map entries.
+     * Applies f to each of the map entries.
      * The order depends on AbstractMap implementation and cannot be guaranteed or predicted.
      */
     //fun forEach(f : (K, V) -> Unit)

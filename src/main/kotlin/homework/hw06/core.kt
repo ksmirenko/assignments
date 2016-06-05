@@ -64,7 +64,7 @@ class Core private constructor () {
      * Checks whether the game someone won after a symbol was put into cell [[x], [y]].
      */
     private fun isGameFinished(x : Int, y : Int) : Boolean {
-        var cellValue = gridContent[x][y]
+        val cellValue = gridContent[x][y]
         var bingoRow = true
         for (j in 0..gridSize - 1)
             bingoRow = bingoRow && (cellValue == gridContent[x][j])

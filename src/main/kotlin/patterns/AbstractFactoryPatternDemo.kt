@@ -1,7 +1,7 @@
 package patterns
 
 /**
- * Created by Mikhail on 18.09.2015.
+ * @author Mikhail
  */
 
 interface Shape {

@@ -1,9 +1,8 @@
 package homework.hw05
 
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
-import org.junit.Assert.*
-import kotlin.test.assertEquals
-import java.util.Random
+import java.util.*
 
 /**
  * Tests for hw 05.
@@ -30,7 +29,7 @@ class Hw05Test {
 
     private fun testMergeSort(arrSize : Int, threadsNumber : Int) {
         val rnd = Random()
-        val arr = Array<Int>(arrSize, { i -> rnd.nextInt() })
+        val arr = Array(arrSize, { i -> rnd.nextInt() })
         mergeSort(arr, threadsNumber)
         assertArrayEquals(arr.sortedArray(), arr)
     }

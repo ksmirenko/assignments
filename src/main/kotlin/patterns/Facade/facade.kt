@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package patterns.Facade
 
 /*
@@ -47,7 +49,7 @@ class RAM {
 
     fun upload(position: Byte, length: Byte): Array<Byte> {
         println("RAM        : Upload data from $position")
-        var data = Array<Byte>(length.toInt(), { 0 })
+        val data = Array<Byte>(length.toInt(), { 0 })
         for (i in 0..data.size - 1)
             data[i] = memory[position + i]
         return data
@@ -60,7 +62,7 @@ class HardDrive {
 
     fun read(position: Byte, size : Byte) : Array<Byte> {
         println("Hard drive : Upload data from $position")
-        var data = Array<Byte>(size.toInt(), { 0 })
+        val data = Array<Byte>(size.toInt(), { 0 })
         for (i in 0..size - 1)
             data[i] = memory[position + i]
         return data

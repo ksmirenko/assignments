@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package classroom.c05
 
 import java.util.*
@@ -138,7 +140,7 @@ class Tree<A: Comparable<A>>(): Iterable<A> {
         }.toString()
 
     fun toList(): List<A> {
-        val list: MutableList<A> = ArrayList<A>()
+        val list: MutableList<A> = ArrayList()
         for (e in this) {
             list.add(e)
         }

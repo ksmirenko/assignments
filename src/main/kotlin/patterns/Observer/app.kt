@@ -1,6 +1,7 @@
-package patterns.observer
+package patterns.Observer
 
 import java.util.*
+import java.util.Observer
 
 
 class  BaggageInfo( private val flight : Int, private val from : String, private val carousel : Int) {
@@ -33,7 +34,7 @@ class BaggageHandler() : Observable() {
     }
 
     fun BaggageStatus(flightNo: Int, from: String, carousel: Int) {
-        var info = BaggageInfo(flightNo, from, carousel)
+        val info = BaggageInfo(flightNo, from, carousel)
 
         if (carousel > 0 && !flights.contains(info)) {
 
@@ -42,7 +43,7 @@ class BaggageHandler() : Observable() {
                 observer.update(this, info)
         } else if (carousel == 0) {
 
-            var flightsToRemove = ArrayList<BaggageInfo>()
+            val flightsToRemove = ArrayList<BaggageInfo>()
 
             for (flight in flights) {
                 if (info.flightNumber() == flight.flightNumber()) {

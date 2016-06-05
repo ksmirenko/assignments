@@ -50,6 +50,7 @@ class Network(comps : Array<String>, e : List<Pair<Int, Int>>, infected : List<I
         }
     }
 
+    @Suppress("unused")
     fun printStats() {
         println("Time = $time")
         for (c in computers) {

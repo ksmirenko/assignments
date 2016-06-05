@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package patterns.Strategy
 
 fun firstHash(input : String) : String {

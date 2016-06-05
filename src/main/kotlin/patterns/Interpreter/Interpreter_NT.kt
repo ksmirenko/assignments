@@ -55,21 +55,21 @@ class AndExpression (expr1 : Expression, expr2 : Expression) : Expression {
 
 //Rule: Robert and John are male
 fun getMaleExpression() : Expression{
-    var robert : Expression = TerminalExpression("Robert");
-    var john : Expression = TerminalExpression("John");
+    val robert : Expression = TerminalExpression("Robert");
+    val john : Expression = TerminalExpression("John");
     return OrExpression(robert, john);
 }
 
 //Rule: Julie is a married women
 fun getMarriedWomanExpression() : Expression{
-    var julie : Expression = TerminalExpression("Julie");
-    var married : Expression = TerminalExpression("Married");
+    val julie : Expression = TerminalExpression("Julie");
+    val married : Expression = TerminalExpression("Married");
     return AndExpression(julie, married);
 }
 
 fun main (args : Array<String>) {
-    var isMale : Expression = getMaleExpression();
-    var isMarriedWoman : Expression = getMarriedWomanExpression();
+    val isMale : Expression = getMaleExpression();
+    val isMarriedWoman : Expression = getMarriedWomanExpression();
 
     println("John is male? " + isMale.interpret("John"));
     println("Julie is a married women? " + isMarriedWoman.interpret("Married Julie"));

@@ -1,5 +1,5 @@
 /**
- * Created by Rinat on 08/12/15.
+ * @author Rinat
  */
 class Dad(kitchen: Kitchen) {
     var kitchen = kitchen
@@ -69,11 +69,11 @@ class Kitchen(){
 
 fun main(args: Array<String>) {
     var round_counter = 0;
-    var kitchen = Kitchen()
+    val kitchen = Kitchen()
     while (kitchen.dad.getBeer())
     {
         round_counter++
-        println(" ${round_counter} round passed");
+        println(" $round_counter round passed");
     }
 }
 

@@ -1,4 +1,4 @@
-package classroom.c04.kotlin
+package classroom.c04
 
 data class Pair<A: Comparable<A>, B: Comparable<B>>(
         val first: A, val second: B

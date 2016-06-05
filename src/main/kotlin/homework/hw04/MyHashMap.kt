@@ -11,7 +11,7 @@ import java.util.*
  */
 class MyHashMap<K, V>() : MyAbstractMap<K, V> where K : Comparable<K> {
     private val TABLE_SIZE = 1024
-    private val hashTable = Array<ArrayList<MyMapEntry<K, V>>>(TABLE_SIZE, { x -> ArrayList<MyMapEntry<K, V>>() })
+    private val hashTable = Array(TABLE_SIZE, { x -> ArrayList<MyMapEntry<K, V>>() })
 
     override fun insert(newKey : K, newValue : V) {
         remove(newKey)
@@ -46,7 +46,7 @@ class MyHashMap<K, V>() : MyAbstractMap<K, V> where K : Comparable<K> {
         }
     }
 
-    override fun newClassInstance() : MyAbstractMap<K, V> = MyHashMap<K, V>()
+    override fun newClassInstance() : MyAbstractMap<K, V> = MyHashMap()
 
     class MyMapEntry<K, V>(val key : K, val value : V) {
         override fun equals(other : Any?) : Boolean = (other is MyMapEntry<*, *>) && (key?.equals(other.key) ?: false)

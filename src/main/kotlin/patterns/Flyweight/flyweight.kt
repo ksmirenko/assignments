@@ -1,4 +1,4 @@
-package Flyweight
+package patterns.Flyweight
 
 import java.util.*
 

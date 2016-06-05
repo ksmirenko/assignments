@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package patterns.Facade
 
 class Drive {

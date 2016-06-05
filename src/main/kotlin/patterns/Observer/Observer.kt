@@ -4,7 +4,7 @@ import java.util.ArrayList
 
  class Subject {
 
-    private var  observers: ArrayList<Observer> = ArrayList<Observer>()
+    private var  observers: ArrayList<Observer> = ArrayList()
     private var state: Int = 0
 
     fun getState(): Int {
@@ -69,12 +69,12 @@ class HexaObserver(): Observer() {
 
     fun main(args: Array<String>) {
 
-        var subject: Subject = Subject()
-        var Bin: BinaryObserver = BinaryObserver()
+        val subject: Subject = Subject()
+        val Bin: BinaryObserver = BinaryObserver()
         Bin.BinaryObserver(subject)
-        var Oct: OctalObserver = OctalObserver()
+        val Oct: OctalObserver = OctalObserver()
         Oct.OctalObserver(subject)
-        var Hex: HexaObserver = HexaObserver()
+        val Hex: HexaObserver = HexaObserver()
         Hex.HexaObserver(subject)
 
 

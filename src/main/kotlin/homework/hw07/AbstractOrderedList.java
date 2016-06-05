@@ -17,7 +17,7 @@ public abstract class AbstractOrderedList<T extends Comparable<? super T>>
 
     public abstract void removeAt(int index);
 
-    public abstract int size();
+    protected abstract int size();
 
     public int compareTo(@NotNull AbstractOrderedList<? extends T> other) {
         // compares lexicographically

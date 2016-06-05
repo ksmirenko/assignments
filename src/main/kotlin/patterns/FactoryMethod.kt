@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package patterns
 
 import java.util.*

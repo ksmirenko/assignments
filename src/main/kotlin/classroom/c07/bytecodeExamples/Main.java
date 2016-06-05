@@ -1,6 +1,6 @@
 package classroom.c07.bytecodeExamples;
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         int x = 5;
         int y = 6 + 4;

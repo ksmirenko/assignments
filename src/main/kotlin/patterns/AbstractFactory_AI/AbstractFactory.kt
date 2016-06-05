@@ -1,4 +1,4 @@
-package AbstractFactory
+package patterns.AbstractFactory_AI
 
 /**
  * Simple example of abstract factory
@@ -51,7 +51,7 @@ fun sayAllPhrases(factory : langFactory){
 fun main(args: Array<String>) {
     println("Choose your language")
     println("italian - 1, german - 2, french - 3,  english as default")
-    var a : Int = readLine()!!.toInt()
+    val a : Int = readLine()!!.toInt()
     when (a){
         1    -> sayAllPhrases(italianFactory())
         2    -> sayAllPhrases(germanFactory())

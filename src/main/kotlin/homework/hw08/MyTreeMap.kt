@@ -2,7 +2,6 @@
 // Author: Kirill Smirenko, group 271
 package homework.hw08
 
-import classroom.c03.AVLtree
 import java.util.*
 
 /**
@@ -27,20 +26,19 @@ class MyTreeMap<K, V>() : MyAbstractMap<K, V> where K : Comparable<K> {
         root = remove(root, key)
     }
 
-    override fun newClassInstance() : MyAbstractMap<K, V> = MyTreeMap<K, V>()
+    override fun newClassInstance() : MyAbstractMap<K, V> = MyTreeMap()
 
     override fun iterator() : Iterator<MyMapEntry<K, V>> = root?.iterator() ?: EmptyIterator()
 
     /**
      * A Node (empty, leaf or non-leaf) for AVL tree.
-     * @param key Node key.
-     * @param value Node value.
+     * @param entry Map entry.
      * @param left Left subtree.
      * @param right Right subtree.
      */
-    internal class Node<K : Comparable<K>, V>(value : MyMapEntry<K, V>, left : Node<K, V>?, right : Node<K, V>?)
+    internal class Node<K : Comparable<K>, V>(entry : MyMapEntry<K, V>, left : Node<K, V>?, right : Node<K, V>?)
     : Iterable<MyMapEntry<K, V>> {
-        var entry : MyMapEntry<K, V> = value
+        var entry : MyMapEntry<K, V> = entry
         var left : Node<K, V>? = left
         var right : Node<K, V>? = right
 
@@ -70,7 +68,8 @@ class MyTreeMap<K, V>() : MyAbstractMap<K, V> where K : Comparable<K> {
             return if (right_ == null) entry.key else right_.findMax()
         }
 
-        /**
+        @Suppress("unused")
+                /**
          * Creates an AVL tree using the node as root.
          */
         fun toTree() : MyTreeMap<K, V> {
@@ -135,16 +134,16 @@ class MyTreeMap<K, V>() : MyAbstractMap<K, V> where K : Comparable<K> {
     }
 
     private class NodeIterator<K : Comparable<K>, V>(private val node : Node<K, V>) : Iterator<MyMapEntry<K, V>> {
-        protected val lIterator = node.left?.iterator() ?: EmptyIterator()
-        protected val rIterator = node.right?.iterator() ?: EmptyIterator()
-        protected var wasObserved : Boolean = false
-        protected var leftHasNext : Boolean = true
+        private val lIterator = node.left?.iterator() ?: EmptyIterator()
+        private val rIterator = node.right?.iterator() ?: EmptyIterator()
+        private var wasObserved : Boolean = false
+        private var leftHasNext : Boolean = true
             get() =
             if (field) {
                 field = lIterator.hasNext(); field
             }
             else false
-        protected var rightHasNext : Boolean = true
+        private var rightHasNext : Boolean = true
             get() =
             if (field) {
                 field = rIterator.hasNext(); field

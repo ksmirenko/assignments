@@ -20,7 +20,7 @@ fun sift(array : Array<Int>, start : Int, end : Int) {
     var root = start
 
     while (root * 2 + 1 <= end) {
-        var child = root * 2 + 1 // left child
+        val child = root * 2 + 1 // left child
         var sw = root
 
         if (array[sw] < array[child])

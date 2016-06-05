@@ -55,11 +55,11 @@ class Window (
 }
 
 fun main (args : Array<String>){
-   var app1 = Application.getInstance()
-   var firstWindow = Window(0,0)
+   val app1 = Application.getInstance()
+   val firstWindow = Window(0,0)
    firstWindow.createAppWindow(app1)
-   var app2 = Application.getInstance()
-   var secondWindow = Window(0,0)
+   val app2 = Application.getInstance()
+   val secondWindow = Window(0,0)
    secondWindow.createAppWindow(app2)
    print ("Number of application windows: ")
    println(app2?.listOfWindows?.get(0)?.size ?: 0)

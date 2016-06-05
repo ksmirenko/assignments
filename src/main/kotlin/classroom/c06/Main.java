@@ -1,7 +1,6 @@
 package classroom.c06;
 
 import java.util.LinkedList;
-import java.util.NoSuchElementException;
 
 public class Main {
     public void hello() {
@@ -17,18 +16,18 @@ public class Main {
     class IndexOutOfCollectionException extends Exception {}
 
     abstract class IOrderedList {
-        public abstract int get(int index) throws IndexOutOfCollectionException;
+        public abstract int get(@SuppressWarnings("SameParameterValue") int index) throws IndexOutOfCollectionException;
 
-        protected IndexOutOfCollectionException getOutOfCollectionException() {
+        IndexOutOfCollectionException getOutOfCollectionException() {
             return new IndexOutOfCollectionException();
         }
     }
 
     class ArrayOrderedList extends IOrderedList {
-        private int size;
-        private int[] array;
+        private final int size;
+        private final int[] array;
 
-        public ArrayOrderedList(int size) {
+        public ArrayOrderedList(@SuppressWarnings("SameParameterValue") int size) {
             this.size = size;
             array = new int[size];
             for (int i = 0; i < size; i++) {
@@ -46,7 +45,7 @@ public class Main {
     }
 
     class OrderedLinkedList extends IOrderedList {
-        private LinkedList<Integer> list;
+        private final LinkedList<Integer> list;
 
         public OrderedLinkedList(int size) {
             list = new LinkedList<Integer>();

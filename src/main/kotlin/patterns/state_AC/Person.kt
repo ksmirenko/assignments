@@ -1,4 +1,4 @@
-package patterns.State_AC
+package patterns.state_AC
 
 import java.util.*
 
@@ -55,10 +55,10 @@ class Person() {
     private val states = hashMapOf(Pair("alive", AliveState(this)),
             Pair("dead", DeadState(this)), Pair("zombie", ZombieState(this)))
 
-    private var currentState : State = states.get("alive") ?: throw NoSuchElementException()
+    private var currentState : State = states["alive"] ?: throw NoSuchElementException()
 
     fun changeState(newState : String){
-        currentState = states.get(newState) ?: throw NoSuchElementException()
+        currentState = states[newState] ?: throw NoSuchElementException()
     }
 
     fun act(){

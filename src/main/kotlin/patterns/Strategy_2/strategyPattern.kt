@@ -1,4 +1,4 @@
-package patterns.strategy
+package patterns.Strategy_2
 
 
 interface IStrategy {

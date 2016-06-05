@@ -1,20 +1,22 @@
 package classroom.c04;
 
-public class Pair
+import org.jetbrains.annotations.NotNull;
+
+class Pair
         <A extends Comparable<? super A>, B extends Comparable<? super B>>
         implements Comparable<Pair<? extends A, ? extends B>> {
     private A first;
-    private B second;
+    private final B second;
 
     public Pair(A first, B second) {
         this.first  = first;
         this.second = second;
     }
 
-    public A getFirst() { return first;  }
+    private A getFirst() { return first;  }
     public void setFirst(A newFirst) { first = newFirst;  }
 
-    public B getSecond() { return second; }
+    private B getSecond() { return second; }
 
     @Override
     public boolean equals(Object other) {
@@ -30,7 +32,7 @@ public class Pair
     }
 
     @Override
-    public int compareTo(Pair<? extends A, ? extends B> other) {
+    public int compareTo(@NotNull Pair<? extends A, ? extends B> other) {
         int firstCompare = first.compareTo(other.first);
         if (firstCompare != 0) { return firstCompare; }
         return second.compareTo(other.second);

@@ -131,7 +131,7 @@ class Printer {
 }
 
 fun main(args: Array<String>) {
-    var printer = Printer()
+    val printer = Printer()
     printer.powerOn()
     printer.printDocument()
     printer.addPaper(3)

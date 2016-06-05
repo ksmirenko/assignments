@@ -14,7 +14,7 @@ class Number(private val number: Int) : Expression() {
 
 class Variable(private val variable: String) : Expression() {
     override fun interpret(context: Map<String, Expression>): Int {
-        return context.get(variable)?.interpret(context) ?: variable.toInt()
+        return context[variable]?.interpret(context) ?: variable.toInt()
     }
 }
 
@@ -69,7 +69,7 @@ class Calculator(expression: String): Expression() {
 fun main(args: Array<String>) {
     val expression = "a b c * 6 - +"
     val sentence = Calculator(expression)
-    var tokens = HashMap<String,Expression>()
+    val tokens = HashMap<String,Expression>()
     tokens.put("a", Number(1))
     tokens.put("b", Number(2))
     tokens.put("c", Number(3))

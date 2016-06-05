@@ -36,7 +36,7 @@ class Folder() : Data {
     fun setName(name : String) {
         this.name = name
     }
-    private val folder : ArrayList<Data> = ArrayList<Data>()
+    private val folder : ArrayList<Data> = ArrayList()
 
     override fun doubleClick() {
         println("${this.getName()} folder is Opened")

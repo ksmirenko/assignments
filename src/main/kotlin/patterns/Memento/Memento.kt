@@ -7,13 +7,13 @@ class Originator {
     var state: String = ""
 
     fun saveStateToMemento(): Memento {
-        println("Save ${state}")
+        println("Save $state")
         return Memento(state)
     }
 
     fun getStateFromMemento(Memento: Memento) {
         state = Memento.state
-        println("Load ${state}")
+        println("Load $state")
     }
 }
 

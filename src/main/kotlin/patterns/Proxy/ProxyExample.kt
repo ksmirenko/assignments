@@ -1,7 +1,7 @@
-package Proxy
+package patterns.Proxy
 
 /**
- * Created by Antropov Igor on 24.11.2015.
+ * @author Antropov Igor
  */
 
 interface IBalance {
@@ -28,7 +28,7 @@ class ProxyBalance : IBalance {
 }
 
 fun main(args: Array<String>) {
-    var bobbyBalance = ProxyBalance()
+    val bobbyBalance = ProxyBalance()
 
     println(bobbyBalance.getAccountBalance())
 

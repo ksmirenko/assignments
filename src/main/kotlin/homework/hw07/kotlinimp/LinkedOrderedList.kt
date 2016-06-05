@@ -75,7 +75,7 @@ class LinkedOrderedList<T : Comparable<T>> : AbstractOrderedList<T>() {
         return h
     }
 
-    override fun iterator() : MutableIterator<T> = LinkedOrderedListIterator<T>(head)
+    override fun iterator() : MutableIterator<T> = LinkedOrderedListIterator(head)
 
     private class LinkedOrderedListIterator<T : Comparable<T>>(private var node : Node<T>?) : MutableIterator<T> {
         override fun hasNext() : Boolean = node != null

@@ -69,17 +69,17 @@ class Director(val builder:ComputerBuilder){
 
 fun main(argv:Array<String>){
     //Simple example 1
-    var topGamingComplucter = TopGamePCBuilder()
+    val topGamingComplucter = TopGamePCBuilder()
     val director1 =  Director(topGamingComplucter)
     director1.constuctComputer()
-    var result1 = director1.getComputer()
+    val result1 = director1.getComputer()
     println(result1.CP + " " + result1.OS + " "
             + result1.GPU + " " + result1.RAM)
     //Example 2
-    var SimpleHome = HomePC()
+    val SimpleHome = HomePC()
     val director2 =  Director(SimpleHome)
     director2.constuctComputer()
-    var result2 = director2.getComputer()
+    val result2 = director2.getComputer()
     println(result2.CP + " " + result2.OS + " "
             + result2.GPU + " " + result2.RAM)
 }

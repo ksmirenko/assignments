@@ -1,6 +1,8 @@
 /* Implementation of the Singleton pattern
 by Sokolova Polina */
 
+@file:Suppress("unused")
+
 package patterns.singleton
 
 object EarthAtmosphere {

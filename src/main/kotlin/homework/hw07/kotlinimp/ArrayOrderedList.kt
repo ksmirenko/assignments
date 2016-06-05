@@ -59,7 +59,7 @@ constructor() : AbstractOrderedList<T>() {
         return h
     }
 
-    override fun iterator() : MutableIterator<T> = LinkedOrderedListIterator<T>(this)
+    override fun iterator() : MutableIterator<T> = LinkedOrderedListIterator(this)
 
     private class LinkedOrderedListIterator<T : Comparable<T>>(private val list : ArrayOrderedList<T>) : MutableIterator<T> {
         private var index = 0

@@ -12,13 +12,13 @@ class BasicFunctionTest {
     @Test fun testTreeMap() {
         testInsert(MyTreeMap<Int, String>())
         testSearch(MyTreeMap<Int, String>())
-        testSearch(MyTreeMap<Int, String>())
+        testRemove(MyTreeMap<Int, String>())
     }
 
     @Test fun testHashMap() {
         testInsert(MyHashMap<Int, String>())
         testSearch(MyHashMap<Int, String>())
-        testSearch(MyHashMap<Int, String>())
+        testRemove(MyHashMap<Int, String>())
     }
 
     private fun testInsert(emptyMap : MyAbstractMap<Int, String>) {

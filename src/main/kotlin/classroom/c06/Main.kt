@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package classroom.c06
 
 import java.util.*
@@ -47,7 +49,7 @@ infix fun <A> Iterable<A>.in1(f: A.() -> Unit) {
 }
 
 fun main(args: Array<String>) {
-    listOf<Int>(1, 2, 3) in1 {
+    listOf(1, 2, 3) in1 {
         println(this)
     }
 

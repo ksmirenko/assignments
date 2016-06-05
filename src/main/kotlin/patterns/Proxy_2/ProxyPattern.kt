@@ -1,4 +1,4 @@
-package patterns
+package patterns.Proxy_2
 
 /** Определим общий для RealImage и ProxyImage интерфейс,
  * так что класс ProxyImage можно использовать везде, где ожидается RealImage

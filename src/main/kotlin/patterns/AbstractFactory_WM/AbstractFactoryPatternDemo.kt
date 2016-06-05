@@ -1,4 +1,4 @@
-package patterns
+package patterns.AbstractFactory_WM
 
 /**
  * @author Mikhail

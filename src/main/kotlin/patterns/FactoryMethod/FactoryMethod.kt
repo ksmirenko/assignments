@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package patterns
+package patterns.FactoryMethod
 
 import java.util.*
 

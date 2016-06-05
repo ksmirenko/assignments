@@ -1,6 +1,6 @@
 package patterns
 
-public abstract class Window{
+abstract class Window{
     abstract fun draw()
 }
 

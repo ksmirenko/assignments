@@ -2,72 +2,72 @@ package patterns.Observer
 
 import java.util.ArrayList
 
- public class Subject {
+ class Subject {
 
     private var  observers: ArrayList<Observer> = ArrayList<Observer>()
     private var state: Int = 0
 
-    public fun getState(): Int {
+    fun getState(): Int {
         return state
     }
 
-    public fun setState(state: Int) {
+    fun setState(state: Int) {
         this.state = state
         notifyAllObservers()
     }
 
-    public fun attach(observer: Observer) {
+    fun attach(observer: Observer) {
         observers.add(observer)
     }
 
-    public fun notifyAllObservers() {
+    fun notifyAllObservers() {
         for (observer in observers) {
             observer.update()
         }
     }
 }
 
-public abstract class Observer {
-    public var subject: Subject = Subject()
-    public abstract fun update()
+abstract class Observer {
+    var subject: Subject = Subject()
+    abstract fun update()
 }
 
-public class BinaryObserver(): Observer() {
+class BinaryObserver(): Observer() {
 
-    public fun BinaryObserver(subject: Subject) {
+    fun BinaryObserver(subject: Subject) {
     this.subject = subject
     this.subject.attach(this)
 }
 
-    override public fun update() {
+    override fun update() {
         println("Binary String: " + Integer.toBinaryString(subject.getState()))
     }
 }
 
-public  class OctalObserver(): Observer(){
+class OctalObserver(): Observer(){
 
-    public fun  OctalObserver(subject: Subject) {
+    fun  OctalObserver(subject: Subject) {
         this.subject = subject
         this.subject.attach(this)
     }
 
-    override public fun update() {
+    override fun update() {
         println("Octal String: " + Integer.toOctalString(subject.getState()))
     }
 }
 
-public  class HexaObserver(): Observer() {
-    public fun HexaObserver(subject: Subject) {
+class HexaObserver(): Observer() {
+    fun HexaObserver(subject: Subject) {
         this.subject = subject
         this.subject.attach(this)
     }
 
-    override public fun update() {
+    override fun update() {
         println("Hex String: " + Integer.toHexString(subject.getState()).toUpperCase())
     }
 }
 
-    public fun main(args: Array<String>) {
+    fun main(args: Array<String>) {
 
         var subject: Subject = Subject()
         var Bin: BinaryObserver = BinaryObserver()

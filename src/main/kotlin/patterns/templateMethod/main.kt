@@ -7,7 +7,7 @@ abstract class Instrument() {
     abstract protected fun instrument() : String
     abstract protected fun tuning()
     abstract protected val model : String
-    public fun play() {
+    fun play() {
         println("Let's buy " + instrument() + model)
         tuning()
         println("Enjoy playing!\n")
@@ -15,28 +15,28 @@ abstract class Instrument() {
 }
 
 class Guitar(override val model : String) : Instrument() {
-    override protected fun instrument() : String {
+    override fun instrument() : String {
         return "a guitar "
     }
-    override protected fun tuning() {
+    override fun tuning() {
         println("Tuning a guitar")
     }
 }
 
 class Piano(override val model : String) : Instrument() {
-    override protected fun instrument() : String {
+    override fun instrument() : String {
         return "a piano "
     }
-    override protected fun tuning() {
+    override fun tuning() {
         println("Setting a piano")
     }
 }
 
 class Drums(override val model : String) : Instrument() {
-    override protected fun instrument() : String {
+    override fun instrument() : String {
         return "a drum kit "
     }
-    override protected fun tuning() {
+    override fun tuning() {
         println("Setting drums")
     }
 }

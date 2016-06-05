@@ -9,23 +9,21 @@ task wrapper(type: Wrapper) {
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
-defaultTasks 'test', 'run'
-
-mainClassName = 'homework.hw03.Hw03Package'
-
-sourceCompatibility = 1.5
+defaultTasks 'test'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile group: 'org.ow2.asm', name: 'asm-all', version: '5.0.1'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 }
 buildscript {
-    ext.kotlin_version = '1.0.0-beta-1038'
+    ext.kotlin_version = '1.0.2'
     repositories {
         mavenCentral()
     }

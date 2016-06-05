@@ -11,17 +11,17 @@ and uses AdvancedMediaPlayer objects to play the required format.
 AudioPlayer uses the adapter class MediaAdapter passing it the desired audio type without knowing the actual class which can play the desired format.
 */
 
-public interface MediaPlayer {
-    public fun play(audioType: String, fileName: String)
+interface MediaPlayer {
+    fun play(audioType: String, fileName: String)
 }
 
-public interface AdvMediaPlayer {
-    public fun playVlc(fileName: String)
-    public fun playMp4(fileName: String)
+interface AdvMediaPlayer {
+    fun playVlc(fileName: String)
+    fun playMp4(fileName: String)
 }
 
 
-public class VlcPlayer() : AdvMediaPlayer {
+class VlcPlayer() : AdvMediaPlayer {
     override fun playVlc(fileName: String) {
         println("Playing vlc file $fileName")
     }
@@ -29,7 +29,7 @@ public class VlcPlayer() : AdvMediaPlayer {
     override fun playMp4(fileName: String) { }
 }
 
-public class Mp4Player(): AdvMediaPlayer {
+class Mp4Player(): AdvMediaPlayer {
     override fun playVlc(fileName: String) { }
 
     override fun playMp4(fileName: String) {
@@ -37,10 +37,10 @@ public class Mp4Player(): AdvMediaPlayer {
     }
 }
 
-public class MediaAdapter(): MediaPlayer {
+class MediaAdapter(): MediaPlayer {
     private var amp: AdvMediaPlayer? = null
 
-    public  constructor(audioType: String): this() {
+    constructor(audioType: String): this() {
         when (audioType) {
             "vlc" -> amp = VlcPlayer()
             "mp4" -> amp = Mp4Player()
@@ -57,7 +57,7 @@ public class MediaAdapter(): MediaPlayer {
 }
 
 
-public class AudioPlayer(): MediaPlayer {
+class AudioPlayer(): MediaPlayer {
     private var mAdapter: MediaAdapter? = null
 
     override fun play(audioType: String, fileName: String) {

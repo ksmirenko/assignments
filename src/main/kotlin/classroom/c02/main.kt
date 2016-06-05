@@ -13,14 +13,14 @@ class Tree(
         left_param : Tree?,
         right_param: Tree?
 ) {
-    public var left: Tree? = left_param
+    var left: Tree? = left_param
         get() = field
         set(newLeft: Tree?) {
             field = newLeft
             height_f = calcHeight()
         }
 
-    public var right: Tree? = right_param
+    var right: Tree? = right_param
         get() = field
         set(newRight: Tree?) {
             field = newRight

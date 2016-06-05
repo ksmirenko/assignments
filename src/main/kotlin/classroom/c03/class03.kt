@@ -1,20 +1,20 @@
 package classroom.c03
 
 abstract class Tree() {
-    abstract public fun height(): Int
+    abstract fun height(): Int
 }
 class Leaf(): Tree() {
-    override public fun height() = 0
+    override fun height() = 0
 }
 class Node(val value: Int, val left: Tree, val right: Tree): Tree() {
-    override public fun height() = 1 + Math.max(left.height(), right.height())
+    override fun height() = 1 + Math.max(left.height(), right.height())
 }
 
 class AVLtree() {
     private var root = Leaf()
 
     object A {
-        public fun balance(t: Tree): Int {
+        fun balance(t: Tree): Int {
             when (t) {
                 is Node -> {
                     return t.right.height() - t.left.height()

@@ -1,3 +1,5 @@
+import java.util.*
+
 /**
  * Example for pattern "iterator"
  *
@@ -5,7 +7,7 @@
  */
 
 abstract class Tree {
-    public fun size() : Int {
+    fun size() : Int {
         when(this) {
             is Node -> return 1 + this.left.size() + this.right.size()
             else    -> return 0
@@ -14,10 +16,10 @@ abstract class Tree {
 }
 
 abstract class Iterator() {
-    abstract public fun first()
-    abstract public fun next()
-    abstract public fun isDone() : Boolean
-    abstract public fun currentItem() : Int
+    abstract fun first()
+    abstract fun next()
+    abstract fun isDone() : Boolean
+    abstract fun currentItem() : Int
 }
 
 class Empty() : Tree() {}
@@ -26,15 +28,15 @@ class Empty() : Tree() {}
 class Leaf(val _value : Int) : Node(_value, Empty(), Empty()) {}
 
 open class Node(val value : Int, val left : Tree, val right : Tree) : Tree() {
-    public fun createCLRIterator() : Iterator {
+    fun createCLRIterator() : Iterator {
         return CLRIterator(this)
     }
 
-    public fun createLCRIterator() : Iterator {
+    fun createLCRIterator() : Iterator {
         return LCRIterator(this)
     }
 
-    public fun createLRCIterator() : Iterator {
+    fun createLRCIterator() : Iterator {
         return LRCIterator(this)
     }
 }
@@ -43,13 +45,13 @@ open class TreeIterator(val tree : Tree) : Iterator() {
     private var index = 0
     private val elem  = toList(tree)
 
-    open public fun toList(t : Tree) : List<Int> {
+    open fun toList(t : Tree) : List<Int> {
         when (t) {
             is Node -> {
                 val left = toList(t.left)
                 val right = toList(t.right)
 
-                val list = listOf(t.value).toLinkedList()
+                val list = LinkedList(listOf(t.value))
                 for (i in left) list.add(i)
                 for (i in right) list.add(i)
 
@@ -59,19 +61,19 @@ open class TreeIterator(val tree : Tree) : Iterator() {
         }
     }
 
-    public override fun first() {
+    override fun first() {
         index = 0
     }
 
-    public override fun next() {
+    override fun next() {
         index++
     }
 
-    public override fun isDone() : Boolean {
+    override fun isDone() : Boolean {
         return (index == tree.size())
     }
 
-    public override fun currentItem() : Int {
+    override fun currentItem() : Int {
         return elem[index]
     }
 }
@@ -79,13 +81,13 @@ open class TreeIterator(val tree : Tree) : Iterator() {
 class CLRIterator(val _tree : Tree) : TreeIterator(_tree) {}
 
 class LCRIterator(val _tree : Tree) : TreeIterator(_tree) {
-    public override fun toList(t : Tree) : List<Int> {
+    override fun toList(t : Tree) : List<Int> {
         when (t) {
             is Node -> {
                 val left = toList(t.left)
                 val right = toList(t.right)
 
-                val list = left.toLinkedList()
+                val list = LinkedList(left)
                 list.add(t.value)
                 for (i in right) list.add(i)
 
@@ -97,13 +99,13 @@ class LCRIterator(val _tree : Tree) : TreeIterator(_tree) {
 }
 
 class LRCIterator(val _tree : Tree) : TreeIterator(_tree) {
-    public override fun toList(t : Tree) : List<Int> {
+    override fun toList(t : Tree) : List<Int> {
         when (t) {
             is Node -> {
                 val left = toList(t.left)
                 val right = toList(t.right)
 
-                val list = left.toLinkedList()
+                val list = LinkedList(left)
                 for (i in right) list.add(i)
                 list.add(t.value)
 

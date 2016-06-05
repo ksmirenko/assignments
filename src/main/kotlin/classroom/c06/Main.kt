@@ -3,23 +3,23 @@ package classroom.c06
 import java.util.*
 
 abstract class IOrderedList() {
-    public abstract fun get(index: Int): Int
+    abstract fun get(index: Int): Int
 }
 
-class ArrayOrderedList(public val size: Int): IOrderedList() {
+class ArrayOrderedList(val size: Int): IOrderedList() {
     private val array: Array<Int> = Array(size) { 0 }
 
-    override public fun get(index: Int): Int {
+    override fun get(index: Int): Int {
         if (index < 0 || index >= size) {
             throw NoSuchElementException()
         }
         return array[index]
     }
 
-    public operator fun getOp(index: Int): Int = get(index)
+    fun getOp(index: Int): Int = get(index)
 }
 
-class OrderedLinkedList(public val size: Int): IOrderedList() {
+class OrderedLinkedList(val size: Int): IOrderedList() {
     private val list: LinkedList<Int> = LinkedList()
     init {
         for (i in 0..(size-1)) {
@@ -38,7 +38,7 @@ class OrderedLinkedList(public val size: Int): IOrderedList() {
     }
 }
 
-operator fun <A> Iterable<A>.in1(f: A.() -> Unit) {
+infix fun <A> Iterable<A>.in1(f: A.() -> Unit) {
     val it = this.iterator()
     while (it.hasNext()) {
         val e = it.next()

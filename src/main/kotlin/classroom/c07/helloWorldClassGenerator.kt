@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
 
     mw.visitMethodInsn(INVOKEVIRTUAL,
             "java/io/PrintStream", "println",
-            "(Ljava/lang/String;)V")
+            "(Ljava/lang/String;)V", false)
     mw.visitInsn(RETURN)
     mw.visitMaxs(2, 2)
     mw.visitEnd()

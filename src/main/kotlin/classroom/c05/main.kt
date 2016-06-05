@@ -94,7 +94,7 @@ class Tree<A: Comparable<A>>(): Iterable<A> {
             when {
                 it < 0 -> Node(value, l, r.insert(elem))
                 it > 0 -> Node(value, l.insert(elem), r)
-                else -> this ?: Node(value, l, r)
+                else -> this
             }
         }
     }
@@ -123,21 +123,21 @@ class Tree<A: Comparable<A>>(): Iterable<A> {
         }
     }
 
-    public fun insert(elem: A) { root = root.insert(elem) }
-    public fun remove(elem: A) { root = root.remove(elem) }
-    public fun contains(elem: A): Boolean = root.contains(elem)
-    public fun size(): Int = root.size()
+    fun insert(elem: A) { root = root.insert(elem) }
+    fun remove(elem: A) { root = root.remove(elem) }
+    fun contains(elem: A): Boolean = root.contains(elem)
+    fun size(): Int = root.size()
 
     override fun iterator(): Iterator<A> =
             root?.iterator() ?: EmptyIterator()
 
     override fun toString(): String =
         StringBuilder().let { sb ->
-            this forEach { sb.append("$it ") }
+            this.forEach { sb.append("$it ") }
             sb.append("\n")
         }.toString()
 
-    public fun toList(): List<A> {
+    fun toList(): List<A> {
         val list: MutableList<A> = ArrayList<A>()
         for (e in this) {
             list.add(e)
@@ -146,7 +146,7 @@ class Tree<A: Comparable<A>>(): Iterable<A> {
     }
 }
 
-public fun main(args: Array<String>) {
+fun main(args: Array<String>) {
     val tree = Tree<Int>()
     val range = 1..5
     for (i in range) {

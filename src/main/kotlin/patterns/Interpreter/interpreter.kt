@@ -2,41 +2,41 @@ package patterns.Interpreter
 
 import java.util.*
 
-public abstract class Expression {
-    public abstract fun interpret(context: Map<String, Expression>): Int
+abstract class Expression {
+    abstract fun interpret(context: Map<String, Expression>): Int
 }
 
-public class Number(private val number: Int) : Expression() {
+class Number(private val number: Int) : Expression() {
     override fun interpret(context: Map<String, Expression>): Int {
         return number
     }
 }
 
-public class Variable(private val variable: String) : Expression() {
+class Variable(private val variable: String) : Expression() {
     override fun interpret(context: Map<String, Expression>): Int {
         return context.get(variable)?.interpret(context) ?: variable.toInt()
     }
 }
 
-public class Plus(var leftOperand: Expression, var rightOperand: Expression) : Expression() {
+class Plus(var leftOperand: Expression, var rightOperand: Expression) : Expression() {
     override fun interpret(context: Map<String, Expression>): Int {
         return leftOperand.interpret(context) + rightOperand.interpret(context)
     }
 }
 
-public class Minus(var leftOperand: Expression, var rightOperand: Expression) : Expression() {
+class Minus(var leftOperand: Expression, var rightOperand: Expression) : Expression() {
     override fun interpret(context: Map<String, Expression>): Int {
         return leftOperand.interpret(context) - rightOperand.interpret(context)
     }
 }
 
-public class Multi(var leftOperand: Expression, var rightOperand: Expression) : Expression() {
+class Multi(var leftOperand: Expression, var rightOperand: Expression) : Expression() {
     override fun interpret(context: Map<String, Expression>): Int {
         return leftOperand.interpret(context) * rightOperand.interpret(context)
     }
 }
 
-public class Calculator(expression: String): Expression() {
+class Calculator(expression: String): Expression() {
     private val syntaxTree: Expression
     init{
         val expressionStack = Stack<Expression>()
@@ -62,7 +62,7 @@ public class Calculator(expression: String): Expression() {
         }
         syntaxTree = expressionStack.pop()
     }
-    override public fun interpret(context: Map<String, Expression>): Int {
+    override fun interpret(context: Map<String, Expression>): Int {
         return syntaxTree.interpret(context)}
 }
 

@@ -3,8 +3,8 @@ by Sokolova Polina */
 
 package patterns.singleton
 
-public object EarthAtmosphere {
-    public fun layer(h : Double) : String {
+object EarthAtmosphere {
+    fun layer(h : Double) : String {
         when {
             (h <   0) -> { return "Invalid height" }
             (h <  17) -> { return "Troposphere"    }
@@ -14,7 +14,7 @@ public object EarthAtmosphere {
             else      -> { return "Exosphere"      }
         }
     }
-    public fun temperature(h : Double) : Double {
+    fun temperature(h : Double) : Double {
         val T = 273.15
         when {
             (h > 145) -> { return 0.0 }
@@ -28,7 +28,7 @@ public object EarthAtmosphere {
             else      -> { return T }
         }
     }
-    public fun pressure(h : Double) : Double {
+    fun pressure(h : Double) : Double {
         val T = temperature(h)
         if (T <= 0.0) { return 0.0 }
         val R = 8.31447  //Gas constant
@@ -38,7 +38,7 @@ public object EarthAtmosphere {
         val pressure = p * Math.exp(-M * g * h * 1000 / (R * T))
         return pressure
     }
-    public fun density(h : Double) : Double {
+    fun density(h : Double) : Double {
         val T = temperature(h)
         if (T <= 0.0) { return 0.0 }
         val R = 8.31447

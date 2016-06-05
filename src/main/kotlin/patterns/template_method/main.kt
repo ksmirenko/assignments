@@ -1,6 +1,6 @@
 package patterns.template_method
 
-abstract public class DataParser {
+abstract class DataParser {
     //Primitive operations
     abstract protected fun readData()
     abstract protected fun parseData()
@@ -12,31 +12,31 @@ abstract public class DataParser {
     }
 
     //Template method
-    public fun parseDataAndGenerateOutput() {
+    fun parseDataAndGenerateOutput() {
         readData()
         parseData()
         writeData()
     }
 }
 
-public class ConsoleDataParser : DataParser() {
+class ConsoleDataParser : DataParser() {
     //Overriding placeholder methods
-    override protected fun readData() {
+    override fun readData() {
         println("Reading data from console")
     }
 
-    override protected fun parseData() {
+    override fun parseData() {
         println("Parsing data from console")
     }
 }
 
-public class FileDataParser : DataParser() {
+class FileDataParser : DataParser() {
     //Overriding placeholder methods
-    override protected fun readData() {
+    override fun readData() {
         println("Reading data from file")
     }
 
-    override protected  fun parseData() {
+    override fun parseData() {
         println("Parsing data from file")
     }
 }

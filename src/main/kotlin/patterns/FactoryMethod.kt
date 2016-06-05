@@ -2,7 +2,7 @@ package patterns
 
 import java.util.*
 
-public abstract class Page { }
+abstract class Page { }
 
 class SkillsRage       : Page() { }
 
@@ -24,20 +24,20 @@ abstract class Document
 {
     private var pages = LinkedList<Page>()
 
-    public var Pages: LinkedList<Page> = pages
+    var Pages: LinkedList<Page> = pages
         get() = field
 
-    public fun Document() {
+    fun Document() {
         CreatePages()
     }
     // Factory Method
-    public abstract fun CreatePages()
+    abstract fun CreatePages()
 }
 class Resume : Document()
 {
 
     // Factory Method implementation
-    public override fun CreatePages()
+    override fun CreatePages()
     {
         Pages.add(SkillsRage())
         Pages.add(EducationPage())
@@ -48,7 +48,7 @@ class Resume : Document()
 class Report : Document()
 {
     // Factory Method implementation
-    public override fun CreatePages()
+    override fun CreatePages()
     {
         Pages.add(IntroductionPage())
         Pages.add(ResultsPage())

@@ -3,7 +3,7 @@ package homework.hw03
 import org.junit.Test
 import kotlin.test.assertEquals
 
-public class Hw03Test {
+class Hw03Test {
     /**
      * Generates simplified node representation (for testing).
      */

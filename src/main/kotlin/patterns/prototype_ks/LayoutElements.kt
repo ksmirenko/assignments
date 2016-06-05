@@ -4,11 +4,11 @@ package patterns.prototype_ks
  * Interface of a layout element.
  */
 interface ILayoutElement {
-    public fun draw()
+    fun draw()
 
-    public fun info() : String
+    fun info() : String
 
-    public fun clone() : ILayoutElement
+    fun clone() : ILayoutElement
 }
 
 /**

@@ -2,11 +2,11 @@ package patterns.singleton
 import java.util.ArrayList
 import java.util.Random
 
-public var instance : Application? = null
+var instance : Application? = null
 
-public class Application {
+class Application {
    companion object Create {
-      public fun getInstance(): Application? {
+      fun getInstance(): Application? {
          if (instance == null) {
             instance = Application();
          }
@@ -14,13 +14,13 @@ public class Application {
       }
    }
 
-   public fun loadWinSize(dimension : String) : Int {
+   fun loadWinSize(dimension : String) : Int {
       print("Computing window with $dimension")
       return Random().nextInt(100)
    }
 
-   public var listOfWindows : Array<ArrayList<Int>> = arrayOf(arrayListOf<Int> (), arrayListOf<Int> ())
-   public fun saveWinSize(dimension : String, size : Int) {
+   var listOfWindows : Array<ArrayList<Int>> = arrayOf(arrayListOf<Int> (), arrayListOf<Int> ())
+   fun saveWinSize(dimension : String, size : Int) {
       if (dimension == "width") {
          println("Saving window width")
          listOfWindows[0].add(listOfWindows[0].size, size)
@@ -32,11 +32,11 @@ public class Application {
    }
 }
 
-public class Window (
+class Window (
         private var width : Int,
         private var height : Int
 ) {
-   public fun createAppWindow (app : Application?) {
+   fun createAppWindow (app : Application?) {
       when (app) {
          null -> {
             width = 0

@@ -9,20 +9,20 @@ interface State {
 
 class PowerOffState(var printer: Printer) : State {
 
-    public override fun on() {
+    override fun on() {
         println("Принтер включен")
         printer.state = printer.waitingState
     }
 
-    public override fun off() {
+    override fun off() {
         println("Принтер и так выключен")
     }
 
-    public override fun print() {
+    override fun print() {
         println("Принтер отключен, печать невозможна")
     }
 
-    public override fun addPaper(count: Int) {
+    override fun addPaper(count: Int) {
         printer.addPaper(count)
         println("Бумага добавлена")
     }
@@ -30,15 +30,15 @@ class PowerOffState(var printer: Printer) : State {
 
 class WaitingState(var printer: Printer) : State {
 
-    public override fun on() {
+    override fun on() {
         println("Принтер уже и так включен")
     }
 
-    public override fun off() {
+    override fun off() {
         println("Принтер выключен")
     }
 
-    public override fun print() {
+    override fun print() {
         if (printer.countPaper > 0) {
             println("Сейчас всё распечатаем")
             printer.addPaper(-1)
@@ -48,7 +48,7 @@ class WaitingState(var printer: Printer) : State {
         }
     }
 
-    public override fun addPaper(count: Int) {
+    override fun addPaper(count: Int) {
         printer.addPaper(count)
         println("Бумага добавлена")
     }
@@ -56,16 +56,16 @@ class WaitingState(var printer: Printer) : State {
 
 class PaperOffState(var printer: Printer) : State {
 
-    public override fun on() {
+    override fun on() {
         println("Принтер уже и так включен")
     }
 
-    public override fun off() {
+    override fun off() {
         println("Принтер выключен")
         printer.state = printer.powerOffState
     }
 
-    public override fun print() {
+    override fun print() {
         if (printer.countPaper > 0) {
             printer.state = printer.printState
             printer.printDocument()
@@ -75,7 +75,7 @@ class PaperOffState(var printer: Printer) : State {
 
     }
 
-    public override fun addPaper(count: Int) {
+    override fun addPaper(count: Int) {
         println("Добавляем бумагу")
         printer.addPaper(count)
         if (printer.countPaper > 0)
@@ -85,15 +85,15 @@ class PaperOffState(var printer: Printer) : State {
 
 class PrintState(var printer: Printer) : State {
 
-    public override fun on() {
+    override fun on() {
         println("Принтер уже и так включен")
     }
 
-    public override fun off() {
+    override fun off() {
         println("Принтер выключен")
     }
 
-    public override fun print() {
+    override fun print() {
         if (printer.countPaper > 0) {
             println("Идёт печать...")
             printer.addPaper(-1)
@@ -105,26 +105,26 @@ class PrintState(var printer: Printer) : State {
 
     }
 
-    public override fun addPaper(count: Int) {
+    override fun addPaper(count: Int) {
         printer.addPaper(count)
         println("Бумага добавлена")
     }
 }
 
 class Printer {
-    public var countPaper = 0; private set
+    var countPaper = 0; private set
 
-    public val paperOffState = PaperOffState(this)
-    public val powerOffState = PowerOffState(this)
-    public val printState = PrintState(this)
-    public val waitingState = WaitingState(this)
+    val paperOffState = PaperOffState(this)
+    val powerOffState = PowerOffState(this)
+    val printState = PrintState(this)
+    val waitingState = WaitingState(this)
 
-    public var state: State = waitingState
+    var state: State = waitingState
 
-    public fun printDocument() = state.print()
-    public fun powerOff() = state.off()
-    public fun powerOn() = state.on()
-    public fun addPaper(count: Int) {
+    fun printDocument() = state.print()
+    fun powerOff() = state.off()
+    fun powerOn() = state.on()
+    fun addPaper(count: Int) {
         countPaper += count
     }
 

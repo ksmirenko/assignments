@@ -4,21 +4,21 @@
 package patterns.builder
 
 /* "Product" */
-public class House {
-    public var foundation: String = ""
-    public var wall: String = ""
-    public var roof: String = ""
+class House {
+    var foundation: String = ""
+    var wall: String = ""
+    var roof: String = ""
 }
 
 /* "Abstract Builder" */
-public abstract class HouseBuilder() {
-    public var house : House = House()
-    public fun createNewHouse() {
+abstract class HouseBuilder() {
+    var house : House = House()
+    fun createNewHouse() {
         house = House()
     }
-    public abstract fun buildFoundation()
-    public abstract fun buildWall()
-    public abstract fun buildRoof()
+    abstract fun buildFoundation()
+    abstract fun buildWall()
+    abstract fun buildRoof()
 }
 
 /* "ConcreteBuilder" */
@@ -48,8 +48,8 @@ internal class BrickHouseBuilder : HouseBuilder() {
 }
 
 /* "Director" */
-public class Director (internal var houseBuilder : HouseBuilder) {
-    public fun constructHouse() {
+class Director (internal var houseBuilder : HouseBuilder) {
+    fun constructHouse() {
         houseBuilder.createNewHouse()
         houseBuilder.buildFoundation()
         houseBuilder.buildWall()

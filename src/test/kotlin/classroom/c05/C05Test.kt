@@ -34,7 +34,7 @@ class C05Test {
         }
 
         for (i in tree) {
-            if (i < range.start || i > range.end) { fail() }
+            if (i < range.start || i > range.endInclusive) { fail() }
         }
     }
 }

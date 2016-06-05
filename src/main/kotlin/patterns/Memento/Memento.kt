@@ -4,7 +4,7 @@ import java.util.ArrayList
 
 class Memento(val state: String) {}
 class Originator {
-    public var state: String = ""
+    var state: String = ""
 
     fun saveStateToMemento(): Memento {
         println("Save ${state}")
@@ -20,11 +20,11 @@ class Originator {
 class CareTaker {
     private val mementoList = ArrayList<Memento>()
 
-    public fun add(state: Memento) {
+    fun add(state: Memento) {
         mementoList.add(state)
     }
 
-    public operator fun get(index: Int): Memento {
+    operator fun get(index: Int): Memento {
         return mementoList[index]
     }
 }

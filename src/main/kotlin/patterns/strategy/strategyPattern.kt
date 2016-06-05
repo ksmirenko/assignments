@@ -1,22 +1,22 @@
 package patterns.strategy
 
 
-public interface IStrategy {
-    public fun doOperation(n1: Int, n2: Int): Int
+interface IStrategy {
+    fun doOperation(n1: Int, n2: Int): Int
 }
 
-public class OperationAdd(): IStrategy {
-    override public fun doOperation(n1: Int, n2: Int) = n1 + n2
+class OperationAdd(): IStrategy {
+    override fun doOperation(n1: Int, n2: Int) = n1 + n2
 }
-public class OperationSub(): IStrategy {
-    override public fun doOperation(n1: Int, n2: Int) = n1 - n2
+class OperationSub(): IStrategy {
+    override fun doOperation(n1: Int, n2: Int) = n1 - n2
 }
-public class OperationMult(): IStrategy {
-    override public fun doOperation(n1: Int, n2: Int) = n1 * n2
+class OperationMult(): IStrategy {
+    override fun doOperation(n1: Int, n2: Int) = n1 * n2
 }
 
-public class Context(private val strategy: IStrategy) {
-    public fun executeStrat(n1: Int, n2: Int): Int =
+class Context(private val strategy: IStrategy) {
+    fun executeStrat(n1: Int, n2: Int): Int =
         strategy.doOperation(n1, n2)
 }
 

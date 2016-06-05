@@ -8,16 +8,16 @@ interface IBalance {
     fun getAccountBalance(): String
 }
 
-public class Balance : IBalance {
+class Balance : IBalance {
     override fun getAccountBalance(): String {
         return "500"
     }
 }
 
-public class ProxyBalance : IBalance {
+class ProxyBalance : IBalance {
     private var realBalance: Balance? = null
 
-    public fun authorization(name: String, password: String){
+    fun authorization(name: String, password: String){
         if (name == "Bobby" && password == "qwerty")
             realBalance = Balance()
     }

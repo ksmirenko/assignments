@@ -2,7 +2,7 @@ package patterns.prototype_ks
 
 import java.util.ArrayList
 
-public class Editor {
+class Editor {
     private var currentElem : ILayoutElement = Triforce()
     private val panel = ArrayList<ILayoutElement>()
 

@@ -10,45 +10,45 @@ import java.util.*
    compositions of objects uniformly.(from Design Patterns by E. Gamma, R. Helm, R. Johnson,J. Vlissides)
  */
 
-public interface Data{
-    public fun doubleClick()
+interface Data{
+    fun doubleClick()
 }
 //Primitive class
-public class File() : Data {
+class File() : Data {
     private var name : String = "Untitled"
-    public fun getName() : String {
+    fun getName() : String {
         return name
     }
-    public fun setName(name : String) {
+    fun setName(name : String) {
         this.name = name
     }
-    override public fun doubleClick() {
+    override fun doubleClick() {
         println("${this.getName()} file is Opened in a Program ")
     }
 }
 
 //Composite Class
-public class Folder() : Data {
+class Folder() : Data {
     private var name = "Untitled"
-    public fun getName(): String {
+    fun getName(): String {
         return name
     }
-    public fun setName(name : String) {
+    fun setName(name : String) {
         this.name = name
     }
     private val folder : ArrayList<Data> = ArrayList<Data>()
 
-    override public fun doubleClick() {
+    override fun doubleClick() {
         println("${this.getName()} folder is Opened")
         for(data in folder) {
             data.doubleClick()
         }
     }
-    public fun add(data : Data) {
+    fun add(data : Data) {
         folder.add(data)
     }
 
-    public fun remove(data : Data) {
+    fun remove(data : Data) {
         folder.remove(data)
     }
 }

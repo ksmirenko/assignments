@@ -1,15 +1,15 @@
 package patterns.Strategy
 
-public interface IHasher {
-    public fun computeHash(password : String) : String
+interface IHasher {
+    fun computeHash(password : String) : String
 }
 
-public class Context() {
+class Context() {
     private var strategy : IHasher = MD5()
-    public fun setStrategy(str : IHasher){
+    fun setStrategy(str : IHasher){
         strategy = str
     }
-    public fun executeStrategy(input : String) : String {
+    fun executeStrategy(input : String) : String {
         return strategy.computeHash(input);
     }
 }

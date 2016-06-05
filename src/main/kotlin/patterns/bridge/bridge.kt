@@ -5,7 +5,7 @@ interface Drawer {
 }
 
 class SmallCircleDrawer:Drawer {
-    public override fun drawCircle(x:Int, y:Int, radius:Int) {
+    override fun drawCircle(x:Int, y:Int, radius:Int) {
         println("Small circle center = " + x + "," + y + " radius = " + radius * radiusMultiplier)
     }
     companion object {
@@ -15,7 +15,7 @@ class SmallCircleDrawer:Drawer {
 class LargeCircleDrawer:Drawer {
     val radiusMultiplier = 10
 
-    public override fun drawCircle(x:Int, y:Int, radius:Int) {
+    override fun drawCircle(x:Int, y:Int, radius:Int) {
         println("Large circle center = " + x + "," + y + " radius = " + radius * radiusMultiplier)
     }
 }
@@ -31,10 +31,10 @@ abstract class Shape protected constructor(drawer:Drawer) {
 }
 
 class Circle(var x:Int,var y:Int,var radius:Int, drawer:Drawer):Shape(drawer) {
-    public override fun draw() {
+    override fun draw() {
         drawer.drawCircle(x, y, radius)
     }
-    public override fun enlargeRadius(multiplier:Int) {
+    override fun enlargeRadius(multiplier:Int) {
         radius *= multiplier
     }
 }

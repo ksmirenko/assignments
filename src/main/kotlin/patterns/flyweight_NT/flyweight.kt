@@ -1,49 +1,49 @@
-public abstract class EnglishCharacter
+abstract class EnglishCharacter
 {
     protected abstract var symbol : Char
     protected abstract var width : Int
     protected abstract var height : Int
 
-    public abstract fun printCharacter()
+    abstract fun printCharacter()
 }
 
 
-public class CharacterA : EnglishCharacter()
+class CharacterA : EnglishCharacter()
 {
     override var symbol: Char = 'A'
     override var width = 10
     override var height = 20
 
-    override public fun printCharacter() {
+    override fun printCharacter() {
         println("Simbol = $symbol Width = $width Height = $height");
     }
 }
 
-public class CharacterB : EnglishCharacter()
+class CharacterB : EnglishCharacter()
 {
     override var symbol = 'B'
     override var width = 20
     override var height = 30
 
-    override public fun printCharacter() {
+    override fun printCharacter() {
         println("Simbol = $symbol Width = $width Height = $height");
     }
 }
 
-public class CharacterC : EnglishCharacter()
+class CharacterC : EnglishCharacter()
 {
     override var symbol = 'C'
     override var width = 40
     override var height = 50
 
-    override public fun printCharacter() {
+    override fun printCharacter() {
         println("Simbol = $symbol Width = $width Height = $height");
     }
 }
 
-public class FlyweightFactory
+class FlyweightFactory
 {
-    public fun getCharacter(characterCode : Int) : EnglishCharacter
+    fun getCharacter(characterCode : Int) : EnglishCharacter
     {
         var character : EnglishCharacter? = null
 

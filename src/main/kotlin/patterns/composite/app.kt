@@ -1,5 +1,6 @@
-package patterns.composite_example
+package patterns.composite
 
+/*
 interface FileSystem
 {
     var name  : String
@@ -48,3 +49,4 @@ fun main(args : Array<String>)
     println(x.name)
     println("   ${x.list.first.name}")
 }
+*/

@@ -4,7 +4,7 @@ package patterns.decorator
  * Created by Alexander Chebykin
  */
 
-public abstract class Window {
+abstract class Window {
     abstract fun draw()
 }
 
@@ -50,7 +50,7 @@ class HorizontalScrollBarDecorator(windowToBeDecorated: Window) : WindowDecorato
     }
 
 }
-public fun main(args : Array<String>) {
+fun main(args : Array<String>) {
     val simpleWindow = SimpleWindow()
     val decoratedWindow = HorizontalScrollBarDecorator(VerticalScrollBarDecorator(simpleWindow))
     simpleWindow.draw()

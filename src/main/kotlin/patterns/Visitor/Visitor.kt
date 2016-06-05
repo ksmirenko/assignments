@@ -1,28 +1,28 @@
 package patterns.Visitor
 
-public interface ItemElement {
-    public fun accept(visitor: ShoppingCartVisitor): Int
+interface ItemElement {
+    fun accept(visitor: ShoppingCartVisitor): Int
 }
 
-public class Book(val price: Int, val name: String): ItemElement {
-    public override fun accept(visitor: ShoppingCartVisitor): Int {
+class Book(val price: Int, val name: String): ItemElement {
+    override fun accept(visitor: ShoppingCartVisitor): Int {
         return visitor.visit(this)
     }
 }
 
-public class Fruit(val PricePerKg: Int, val weight: Int, val name: String): ItemElement {
-    public override fun accept(visitor: ShoppingCartVisitor): Int {
+class Fruit(val PricePerKg: Int, val weight: Int, val name: String): ItemElement {
+    override fun accept(visitor: ShoppingCartVisitor): Int {
         return visitor.visit(this)
     }
 }
 
-public interface ShoppingCartVisitor {
+interface ShoppingCartVisitor {
     fun visit(book: Book): Int
     fun visit(fruit: Fruit): Int
 }
 
-public class ShoppingCartVisitorA: ShoppingCartVisitor {
-    public override fun visit(book: Book): Int {
+class ShoppingCartVisitorA: ShoppingCartVisitor {
+    override fun visit(book: Book): Int {
         var cost: Int
         if (book.price > 50) {
             cost = book.price - 5
@@ -33,7 +33,7 @@ public class ShoppingCartVisitorA: ShoppingCartVisitor {
         return cost
     }
 
-    public override fun visit(fruit: Fruit): Int {
+    override fun visit(fruit: Fruit): Int {
         var cost = fruit.PricePerKg * fruit.weight
         println("${fruit.name} cost = $cost")
         return cost

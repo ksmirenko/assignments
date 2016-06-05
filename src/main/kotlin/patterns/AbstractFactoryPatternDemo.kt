@@ -4,56 +4,56 @@ package patterns
  * Created by Mikhail on 18.09.2015.
  */
 
-public interface Shape {
-    public fun draw()
+interface Shape {
+    fun draw()
 }
 
-public class Square: Shape {
+class Square: Shape {
     override fun draw() {
         println("Inside Square::draw() method.")
     }
 }
 
-public class Rectangle: Shape {
+class Rectangle: Shape {
     override fun draw() {
         println("Inside Rectangle::draw() method.")
     }
 }
 
-public class Circle: Shape {
+class Circle: Shape {
     override fun draw() {
         println("Inside Circle::draw() method.")
     }
 }
 
-public interface Color {
-    public fun fill()
+interface Color {
+    fun fill()
 }
 
-public class Blue: Color {
+class Blue: Color {
     override fun fill() {
         println("Inside Blue::fill() method.")
     }
 }
 
-public class Green: Color {
+class Green: Color {
     override fun fill() {
         println("Inside Green::fill() method.")
     }
 }
 
-public class Red: Color {
+class Red: Color {
     override fun fill() {
         println("Inside Red::fill() method.")
     }
 }
 
-public abstract class AbstractFactory {
+abstract class AbstractFactory {
     abstract fun getColor(color: String): Color?
     abstract fun getShape(shape: String): Shape?
 }
 
-public class ShapeFactory: AbstractFactory() {
+class ShapeFactory: AbstractFactory() {
     override fun getShape(shape: String): Shape? {
         when (shape) {
             "CIRCLE"    -> return Circle()
@@ -67,7 +67,7 @@ public class ShapeFactory: AbstractFactory() {
     }
 }
 
-public class ColorFactory: AbstractFactory() {
+class ColorFactory: AbstractFactory() {
     override fun getShape(shape: String): Shape? {
         return null
     }
@@ -81,8 +81,8 @@ public class ColorFactory: AbstractFactory() {
     }
 }
 
-public object FactoryProducer {
-    public fun getFactory(choice: String): AbstractFactory? {
+object FactoryProducer {
+    fun getFactory(choice: String): AbstractFactory? {
         when (choice) {
             "SHAPE" -> return ShapeFactory()
             "COLOR" -> return ColorFactory()
@@ -91,7 +91,7 @@ public object FactoryProducer {
     }
 }
 
-public fun main(args: Array<String>) {
+fun main(args: Array<String>) {
       val shapeFactory = FactoryProducer.getFactory("SHAPE")
       val shape1 = shapeFactory?.getShape("CIRCLE")
       shape1?.draw()

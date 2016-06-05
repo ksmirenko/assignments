@@ -4,7 +4,7 @@ package patterns
  * так что класс ProxyImage можно использовать везде, где ожидается RealImage
  */
 internal interface Image {
-    public fun display()
+    fun display()
 }
 
 /** Определяет реальный объект, представленный заместителем */
@@ -14,7 +14,7 @@ internal class RealImage(private val fileName: String) : Image {
         loadFromDisk(fileName)
     }
 
-    override public fun display() {
+    override fun display() {
         println("Displaying " + fileName + "\n")
     }
 
@@ -34,7 +34,7 @@ internal class ProxyImage(private val fileName: String) : Image {
 
     private var realImage: RealImage? = null
 
-    override public fun display() {
+    override fun display() {
         if (realImage == null) {
             realImage = RealImage(fileName)
         }

@@ -9,12 +9,12 @@ package patterns.Prototype
 import java.util.*
 
 abstract class Monster() : Cloneable {
-    public abstract var pos : Pair<Float, Float>
-    public abstract var name : String
-    public abstract val type : String
-    public var health = 1000
+    abstract var pos : Pair<Float, Float>
+    abstract var name : String
+    abstract val type : String
+    var health = 1000
 
-    public abstract fun attack()
+    abstract fun attack()
 
     // this function also can be overridden in inherited classes
     public override fun clone() : Monster {
@@ -22,36 +22,36 @@ abstract class Monster() : Cloneable {
     }
 }
 
-public class GroundMonster() : Monster() {
-    public override var pos  = Pair(0f, 0f)
-    public override val type = "ground"
-    public override var name = "Deathclaw"
+class GroundMonster() : Monster() {
+    override var pos  = Pair(0f, 0f)
+    override val type = "ground"
+    override var name = "Deathclaw"
 
-    public override fun attack() {
+    override fun attack() {
         println("Ground monster '$name' at position $pos attacked you. He has $health HP")
     }
 
-    public override fun clone() : GroundMonster {
+    override fun clone() : GroundMonster {
         return (super.clone() as GroundMonster)
     }
 }
 
-public class AirMonster() : Monster() {
-    public override var pos  = Pair(0f, 0f)
-    public override val type = "air"
-    public override var name = "Dragon"
+class AirMonster() : Monster() {
+    override var pos  = Pair(0f, 0f)
+    override val type = "air"
+    override var name = "Dragon"
 
-    public override fun attack() {
+    override fun attack() {
         println("Air monster '$name' at position $pos attacked you. He has $health HP")
     }
 }
 
-public class WaterMonster() : Monster() {
-    public override var pos  = Pair(0f, 0f)
-    public override val type = "water"
-    public override var name = "Drowner"
+class WaterMonster() : Monster() {
+    override var pos  = Pair(0f, 0f)
+    override val type = "water"
+    override var name = "Drowner"
 
-    public override fun attack() {
+    override fun attack() {
         println("Water monster '$name' at position $pos attacked you. He has $health HP")
     }
 }
@@ -59,7 +59,7 @@ public class WaterMonster() : Monster() {
 private class MonsterMaker() {
     private val existingMonsters = LinkedList<Monster>()
 
-    public fun makeMonster(type : String) : Monster {
+    fun makeMonster(type : String) : Monster {
         var found = false
 
         for (m in existingMonsters) {

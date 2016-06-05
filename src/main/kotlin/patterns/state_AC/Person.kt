@@ -50,23 +50,23 @@ private class ZombieState(private val person: Person) : State() {
         person.changeState(state)
     }
 }
-public class Person() {
+class Person() {
 
     private val states = hashMapOf(Pair("alive", AliveState(this)),
             Pair("dead", DeadState(this)), Pair("zombie", ZombieState(this)))
 
     private var currentState : State = states.get("alive") ?: throw NoSuchElementException()
 
-    public fun changeState(newState : String){
+    fun changeState(newState : String){
         currentState = states.get(newState) ?: throw NoSuchElementException()
     }
 
-    public fun act(){
+    fun act(){
         currentState.act()
     }
 }
 
-public fun main(args : Array<String>) {
+fun main(args : Array<String>) {
     val human = Person()
     for (i in 0..9) human.act()
 }

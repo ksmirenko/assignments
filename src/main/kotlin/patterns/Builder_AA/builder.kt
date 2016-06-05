@@ -1,9 +1,9 @@
-// Example for pattern "Bilder"
+// Example for pattern "Builder"
 // Alekseev Aleksei, group 271
 
 @file:Suppress("unused")
 
-package patterns.builder
+package patterns.Builder_AA
 
 /* "Product" */
 class House {
